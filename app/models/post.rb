@@ -6,4 +6,7 @@ class Post < ActiveRecord::Base
                                 allow_destroy: true
   validates :title,
             presence: true
+
+  has_attached_file :image, styles: { medium: "280x416#", thumb: "140x208#" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

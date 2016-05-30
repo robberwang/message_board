@@ -1,5 +1,9 @@
 <h1>Editing Post</h1>
-
+<% if !@post.image.nil? %>
+  <div class="field">
+    <%= image_tag @post.image.url(:medium) %><br>
+  </div>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @post %> |
