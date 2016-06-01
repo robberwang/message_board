@@ -23,10 +23,10 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
-
+  
   <div class="field">
     <% Category.all.each do |category| %>
-      <%= check_box_tag "user[category_ids][]", category.id, f.object.categories.include?(category) %>
+      <%= check_box_tag "user[category_ids]", category.id, f.object.categories.include?(category) %>
       <%= category.name %>
     <% end %>
   </div>
