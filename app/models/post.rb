@@ -4,6 +4,10 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :comments,
                                 reject_if: proc { |attributes| attributes['content'].blank? },
                                 allow_destroy: true
+
+  has_many :categories, through: :category_posts
+  has_many :category_posts
+
   validates :title,
             presence: true
 

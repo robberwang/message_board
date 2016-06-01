@@ -11,12 +11,23 @@
   <%= @post.content %>
 </p>
 
+<% if @post.categories.any? %>
+<p>
+  <strong>Category:</strong>
+  <% @post.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+</p>
+<% end %>
+
 <h2>訪客留言</h2>
 
 <% if @post.comments.any? %>
   <ul>
     <% @post.comments.each do |comment| %>
-      <li><%= comment.created_at.to_datetime.to_s(:db) %> | <%= link_to comment.content, comment %></li>
+      <li>
+        <%= comment.created_at.to_datetime.to_s(:db) %> | <%= link_to comment.content, comment %>
+      </li>
     <% end %>
   </ul>
 <% else %>
